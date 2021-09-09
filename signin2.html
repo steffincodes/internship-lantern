@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags always come first -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Lantern - Sign Up!</title>
+      <!-- FavIcon -->
+      <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+      <!-- Bootstrap core CSS -->
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design -->
+      <link href="assets/css/materialD.css" rel="stylesheet">
+      <!-- Custom Stylesheet-->
+      <link href="assets/css/custom.css" rel="stylesheet">
+   </head>
+   <body class="fixed-sn dark-skin">
+      <div class="container">
+         <div class="row">
+            <div class="col-xs-5">
+               <img src="assets/img/logo_header.png" style="width: 55%;height: 55%; ">
+            </div>
+         </div>
+      </div>
+      <!-- Main layout -->
+      <main>
+         <div class="container">
+            <!--Post-->
+            <div class="row">
+               <!--Main listing-->
+               <div class="col-md-12 full-width-blog ">
+                  <section  class="section">
+                     <!--Section description-->
+                     <div class="row wow fadeIn " data-wow-delay="0.4s">
+                        <!--First column-->
+                        <div class="col-md-6 offset-md-3">
+                           <form onsubmit="return Validate(this);">
+                              <!--First row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <h1 class="text-xs-center h1-responsive">Almost done...</h1>
+                                    <br>
+                                    <div class="md-form">
+                                       <input type="text" id="form51" class="form-control" required>
+                                       <label for="form51" class="">User Name</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/First row-->
+                              <!--Second row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="md-form">
+                                       <input type="password" id="form52" class="form-control" required>
+                                       <label for="form51" class="">Password</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/Second row-->
+                              <!--Third row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="md-form">
+                                       <input type="password" id="form53" class="form-control" required>
+                                       <label for="form51" class="">Confirm Password</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/Third row-->
+                              <!--Fourth row-->
+                              <div class="file-field">
+                                 <div class="btn btn-primary" >
+                                    <span>Choose file</span>
+                                    <input type="file">
+                                 </div>
+                                 <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload your Profile" required>
+                                 </div>
+                              </div>
+                              <!--/Fourth row-->
+                              <br><br>
+                              <div class="float-xs-right">
+                                 <button class="btn black">Sign up</button>
+                              </div>
+                        </div>
+                        </form>
+                        <!--.First column-->
+                     </div>
+                  </section>
+               </div>
+            </div>
+            <!--/.Main listing-->
+         </div>
+         <!--/.Post-->
+         </div>
+      </main>
+      <!--/ Main layout -->
+      <!-- SCRIPTS -->
+      <!-- JQuery -->
+      <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+      <!-- Tooltips -->
+      <script type="text/javascript" src="assets/js/tether.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+      <!-- Material Design core JavaScript -->
+      <script type="text/javascript" src="assets/js/materialD.min.js"></script>
+      <!-- Mood Navigation JavaScript -->
+      <script type="text/javascript" src="assets/js/moodCircleNav.js"></script> 
+      <script>
+         // Animation init
+         new WOW().init();
+         $(document).ready(function() {
+          $('.mdb-select').material_select();
+         });
+         
+         var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+         function Validate(oForm) {
+             var arrInputs = oForm.getElementsByTagName("input");
+             for (var i = 0; i < arrInputs.length; i++) {
+                 var oInput = arrInputs[i];
+                 if (oInput.type == "file") {
+                     var sFileName = oInput.value;
+                     if (sFileName.length > 0) {
+                         var blnValid = false;
+                         for (var j = 0; j < _validFileExtensions.length; j++) {
+                             var sCurExtension = _validFileExtensions[j];
+                             if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                 blnValid = true;
+                                 break;
+                             }
+                         }
+                         
+                         if (!blnValid) {
+                             alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                             return false;
+                         }
+                     }
+                 }
+             }
+           
+             return true;
+         }
+         
+      </script>
+   </body>
+</html>
